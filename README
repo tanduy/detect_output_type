@@ -1,29 +1,20 @@
-Detect when user run with shell output or file output.
-In some applications, you want to know when user run application with erlang shell
-output? when with file output?
+Detect when user run with Erlang shell output or file output.
+In some applications, you want to know when user run application with Erlang shell
+output? or file output?
     In Ruby, you can know it by: $stdout.tty?
     In Python, you can know it by: sys.stdout.isatty()
     e.t
 --------------------------------------------------------------------------------
 Run:
-Before run make you must change $ERL_PATH as the path of Erlang you installed
     make compile
-    make test
-    make test > result.txt
     make sample
     make sample > result.txt
 --------------------------------------------------------------------------------
 Explain:
-    If you run: make run
-    That mean you choose Erlang shell output.
-
-    And If you run: make run > result.txt
-    That mean you choose file output.
-
     If you run: make sample
     That mean you choose Erlang shell output.
     In the sample, output to shell "Hello world!" with red color
 
     If you run: make sample > result.txt
-    That mean you choose Erlang file output.
+    That mean you choose file output.
     In the sample, output to file "Hello world!"
