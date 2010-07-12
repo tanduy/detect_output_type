@@ -1,11 +1,13 @@
+ERL_ROOT=$(shell erl -noshell -eval 'io:format("~n~s~n", [code:root_dir()]).' -s erlang halt | tail -n 1)
+
 compile:
-	@gcc -fPIC -shared -o ebin/detect.so include/detect.c -I $ERL_PATH/usr/include/
-	@erl -make
-test:
-	@erl -noshell -pa ebin -s test run -s init stop
+	@gcc -fPIC -shared -o priv/detect.so include/detect.c -I $(ERL_ROOT)/usr/include/
+	erl -make
 
 sample:
-	@erl -noshell -pa ebin -s helloworld run -s init stop
+	@ERL_PATH=.. erl -noshell -pa demo/ebin -s sample run -s init stop
 
 clean: 
-	@rm -rf ebin/*
+	rm -rf ebin/*
+	rm -rf demo/ebin/*
+	rm -rf priv/detect.so

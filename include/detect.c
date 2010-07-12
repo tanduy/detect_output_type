@@ -4,9 +4,9 @@
 static ERL_NIF_TERM detect(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
 {
     if(isatty(STDOUT_FILENO)) {
-        return enif_make_string(env, "shell");
+        return enif_make_int(env, 0);
     } else {
-        return enif_make_string(env, "file");
+        return enif_make_int(env, 1);
     }
 }
 static ErlNifFunc nif_funcs[] =
