@@ -5,9 +5,10 @@ compile:
 	erl -make
 
 sample:
-	@ERL_PATH=.. erl -noshell -pa demo/ebin -s sample run -s init stop
+	@ERL_LIBS=.. erl -noshell -pa demo/ebin -s sample run -s init stop
 
 clean: 
 	rm -rf ebin/*
 	rm -rf demo/ebin/*
 	rm -rf priv/detect.so
+	rm -rf erl_crash.dump
